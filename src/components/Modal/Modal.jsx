@@ -26,11 +26,9 @@ export default class Modal extends Component {
   };
 
   render() {
-    const { children } = this.props;
-    const { handleBackDropClick } = this;
     return createPortal(
-      <div className="Overlay" onClick={handleBackDropClick}>
-        <div className="Modal">{children}</div>
+      <div className="Overlay" onClick={this.handleBackDropClick}>
+        <div className="Modal">{this.props.children}</div>
       </div>,
       modalRoot
     );
@@ -39,5 +37,4 @@ export default class Modal extends Component {
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  children: PropTypes.object.isRequired,
 };
